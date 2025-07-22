@@ -36,18 +36,24 @@ double Account::getBalance() const
     return balance;
 }
 
+// Comment 3: Because we already defined credit(), in the overloaded operator function +=,
+//            it will invoke the credit() and return the updated object.
 Account &Account::operator+=(const double& addMoney)
 {
     credit(addMoney);
     return *this;
 }
 
+// Comment 4: Because we already defined debit(), in the overloaded operator function -=,
+//            it will invoke the debit() and return the updated object.
 Account &Account::operator-=(const double& withdrawMoney)
 {
     debit(withdrawMoney);
     return *this;
 }
 
+// Comment 5: In the overloaded operator function +, we create a new Account object to avoid
+//            modifying the original object, then invoke the credit() and return the updated balance.
 Account Account::operator+(const double& addMoney) const
 {
     Account result(balance);
@@ -55,6 +61,8 @@ Account Account::operator+(const double& addMoney) const
     return result;
 }
 
+// Comment 6: In the overloaded operator function -, we create a new Account object to avoid
+//            modifying the original object, then invoke the debit() and return the updated balance.
 Account Account::operator-(const double& withdrawMoney) const
 {
     Account result(balance);
@@ -68,8 +76,8 @@ Account &Account::operator=(const Account& account2)
     return *this;
 }
 
-// Comment: Member functions will only work when the class object is on the left side.
-//            In this case, using a non-member function can deal the expression like 50.0 + account A.
+// Comment 7: Member functions will only work when the class object is on the left side. In this
+//            case, using a non-member function can deal with the expression like 50.0 + account A.
 Account operator+(const double& addMoney, const Account& account)
 {
     Account result = account;

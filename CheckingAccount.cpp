@@ -35,6 +35,8 @@ CheckingAccount &CheckingAccount::operator-=(const double& withdrawMoney)
     return *this;
 }
 
+// Comment 10: In the overloaded operator function +, we create a new CheckingAccount object to avoid modifying the original
+//             object, remember to add a parameter for the transaction fee, then invoke the credit() and return the updated balance.
 CheckingAccount CheckingAccount::operator+(const double& addMoney) const
 {
     CheckingAccount result(getBalance(), transactionFee);
