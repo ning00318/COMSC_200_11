@@ -22,4 +22,7 @@ private:
     double balance;
 };
 
+// Comment: Non-member function will return a new Account object.
+Account operator+(const double& addMoney, const Account& account);
+
 #endif

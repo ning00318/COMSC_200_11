@@ -20,4 +20,6 @@ private:
     double transactionFee;
 };
 
+CheckingAccount operator+(const double& addMoney, const CheckingAccount& account);
+
 #endif

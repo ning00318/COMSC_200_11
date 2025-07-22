@@ -44,6 +44,13 @@ SavingsAccount &SavingsAccount::operator=(const SavingsAccount& account2)
     return *this;
 }
 
+SavingsAccount operator+(const double& addMoney, const SavingsAccount& account)
+{
+    SavingsAccount result = account;
+    result += addMoney;
+    return result;
+}
+
 std::ostream &operator<<(std::ostream &output, const SavingsAccount &account)
 {
     output << account.getBalance();

@@ -68,6 +68,15 @@ Account &Account::operator=(const Account& account2)
     return *this;
 }
 
+// Comment: Member functions will only work when the class object is on the left side.
+//            In this case, using a non-member function can deal the expression like 50.0 + account A.
+Account operator+(const double& addMoney, const Account& account)
+{
+    Account result = account;
+    result += addMoney;
+    return result;
+}
+
 std::ostream &operator<<(std::ostream &output, const Account &account)
 {
     output << account.getBalance();

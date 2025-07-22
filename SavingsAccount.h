@@ -19,4 +19,6 @@ private:
     double interestRate;
 };
 
+SavingsAccount operator+(const double& addMoney, const SavingsAccount& account);
+
 #endif

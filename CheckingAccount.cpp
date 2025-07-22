@@ -55,6 +55,13 @@ CheckingAccount &CheckingAccount::operator=(const CheckingAccount& account2)
     return *this;
 }
 
+CheckingAccount operator+(const double& addMoney, const CheckingAccount& account)
+{
+    CheckingAccount result = account;
+    result += addMoney;
+    return result;
+}
+
 std::ostream &operator<<(std::ostream &output, const CheckingAccount &account)
 {
     output << account.getBalance();
